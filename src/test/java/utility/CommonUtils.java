@@ -83,7 +83,7 @@ public class CommonUtils {
 
 	}	
 	
-	/*public static void loadIOSConfigProp(String propertyFileName) throws IOException{
+	public static void loadIOSConfigProp(String propertyFileName) throws IOException{
 		//Loading the properties file
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/test/resources/properties/"+propertyFileName);
 		prop.load(fis);
@@ -91,9 +91,9 @@ public class CommonUtils {
 		//Initialising the properties
 		EXPLICIT_WAIT_TIME = Integer.parseInt(prop.getProperty("explicit.wait"));
 		IMPLICIT_WAIT_TIME = Integer.parseInt(prop.getProperty("implicit.wait"));
-		//APP_PATH = prop.getProperty("application.path");
-		BASE_PKG = prop.getProperty("base.pkg");
-		APP_ACTIVITY = prop.getProperty("application.activity");
+		APP_PATH = prop.getProperty("application.path");
+		BASE_PKG = prop.getProperty("application.app");
+		APP_ACTIVITY = prop.getProperty("udid");
 		APPIUM_PORT = prop.getProperty("appium.server.port");
 		AUTOMATION_INSTRUMENTATION=prop.getProperty("automation.instumentation");
 		DEVICE_NAME=prop.getProperty("device.name");
@@ -111,7 +111,7 @@ public class CommonUtils {
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM_NAME);
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AUTOMATION_INSTRUMENTATION);
-		//capabilities.setCapability(MobileCapabilityType.APP, CommonUtils.APP_PATH);
+		capabilities.setCapability(MobileCapabilityType.APP, APP_PATH);
 		capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, BASE_PKG);
 		capabilities.setCapability(MobileCapabilityType.UDID, APP_ACTIVITY);
 		//capabilities.setCapability(AndroidMobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, ACCEPT_ALERT);
@@ -125,7 +125,7 @@ public class CommonUtils {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		return driver;
 	}
-*/
+
 	
 
 }

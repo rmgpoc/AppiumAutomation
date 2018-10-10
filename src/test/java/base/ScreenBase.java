@@ -12,7 +12,6 @@ import io.appium.java_client.android.AndroidDriver;
 public class ScreenBase {
 	
 	public AppiumDriver<MobileElement> driver;
-	//public AndroidDriver<MobileElement> driver;
 	public WebDriverWait wait;
 	public static Logger log = Logger.getLogger("devpinoyLogger");
 	public ScreenBase(AppiumDriver<MobileElement> driver){
@@ -23,7 +22,7 @@ public class ScreenBase {
 	public void waitforElementPresence(long duration, String locator){
 		
 		wait = new WebDriverWait(driver, duration);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locator)));		
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locator)));
 	}
 	
 	public void waitforEleClassNamePresence(long duration, String locator){

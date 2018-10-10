@@ -23,20 +23,22 @@ public class TestBase {
 	public static Logger log = Logger.getLogger("devpinoyLogger");
 
 	@BeforeSuite
-	public void setUp() throws IOException, InterruptedException {
+	public void setUp() throws Exception {
 		
-		MyScreenRecorder.start();
+	/*	MyScreenRecorder.start();
 		log.debug("Screen Recorder Started");
 		NoxPlayerEmulator.start();
-		log.debug("NoxPlayer Emulator Started");
+		log.debug("NoxPlayer Emulator Started");*/
 //		BlueStacksEmulator.start();
 //		log.debug("BlueStacks Emulator Started");
 
 		if (driver == null) {
-			AppiumServer.start();
-			log.debug("Appium Server Started");
+//			AppiumServer.start();
+//			log.debug("Appium Server Started");
 
 			if (loadPropertyFile.startsWith("IOS")) {
+				AppiumServer.startMacAppiumServer();
+				log.debug("Appium Server Started");
 
 				log.debug("Loading IOS Proprties file and Starting IOS Application");
 				/*
@@ -46,6 +48,8 @@ public class TestBase {
 				 */
 
 			} else if (loadPropertyFile.startsWith("Android")) {
+				AppiumServer.start();
+				log.debug("Appium Server Started");
 
 				log.debug("Loading Android Properties file and Starting Android Application");
 				CommonUtils.loadAndroidConfigProp(loadPropertyFile);
@@ -58,18 +62,25 @@ public class TestBase {
 	}
 	
 	@AfterSuite
-	public void tearDown() throws IOException, InterruptedException {
+	public void tearDown() throws Exception {
 
 		Thread.sleep(3000);
 		driver.quit();
-		AppiumServer.stop();
-		log.debug("Appium Server Stopped");
-		NoxPlayerEmulator.stop();
+		if (loadPropertyFile.startsWith("IOS")) {
+			AppiumServer.stopMacAppiumServer();
+			log.debug("Appium Server Stopped");
+		}else{
+			AppiumServer.stop();
+			log.debug("Appium Server Stopped");
+		}
+//		AppiumServer.stop();
+//		log.debug("Appium Server Stopped");
+/*		NoxPlayerEmulator.stop();
 		log.debug("NoxPlayer Emulator Stopped");
 //		BlueStacksEmulator.stop();
 //		log.debug("BlueStacks Emulator Stopped");
 		MyScreenRecorder.stop();
-		log.debug("Screen Recorder Stopped");
+		log.debug("Screen Recorder Stopped");*/
 
 	}
 

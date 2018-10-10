@@ -1,0 +1,12 @@
+10/10/2018 15:21:12 devpinoyLogger Appium Server Started
+10/10/2018 15:21:12 devpinoyLogger Loading Android Properties file and Starting Android Application
+10/10/2018 15:21:34 devpinoyLogger ########Executing TC1 - Purchase One Adult One Child Return Ticket TestCase########
+10/10/2018 15:21:44 devpinoyLogger Return Flight Required
+10/10/2018 15:22:10 devpinoyLogger *******Return Flight Travel Airports have been selected*******
+10/10/2018 15:22:39 devpinoyLogger Travel date is MON 22 OCTOBER
+10/10/2018 15:22:40 devpinoyLogger Standard Ticket Cost is £41:38.
+10/10/2018 15:22:40 devpinoyLogger ***Flight Departs LTN at 13:10 and Arrives BFS at 14:25.
+10/10/2018 15:22:58 devpinoyLogger Travel date is WED 31 OCTOBER
+10/10/2018 15:22:59 devpinoyLogger Standard Ticket Cost is £37:34.
+10/10/2018 15:22:59 devpinoyLogger ***Flight Departs BFS at 16:30 and Arrives LTN at 17:40.
+10/10/2018 15:23:09 devpinoyLogger Appium Server Stopped
