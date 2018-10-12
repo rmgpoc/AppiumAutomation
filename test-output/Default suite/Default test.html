@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Oct 10 12:59:41 BST 2018</td>
+<td>Started on:</td><td>Thu Oct 11 12:48:55 BST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>59 seconds (59296 ms)</td>
+<tr><td>Total time:</td><td>26 seconds (26583 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,11 +75,18 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testcases.EasyTest.oneAdultOneChildRtn()'><b>oneAdultOneChildRtn</b><br>Test class: testcases.EasyTest<br>Parameters: org.testng.TestRunner@6f2cb653</td>
-<td><div><pre>java.lang.NullPointerException
-	at utility.TakeScreenCapture.screenCapture(TakeScreenCapture.java:37)
-	at screens.EasyFlightScreen.selectFareType(EasyFlightScreen.java:93)
-	at screens.EasyFlightScreen.selectOutboundTicket(EasyFlightScreen.java:71)
+<td title='testcases.EasyTest.oneAdultOneChildRtn()'><b>oneAdultOneChildRtn</b><br>Test class: testcases.EasyTest<br>Parameters: org.testng.TestRunner@6b9ce1bf</td>
+<td><div><pre>java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at io.appium.java_client.pagefactory.ElementListInterceptor.getObject(ElementListInterceptor.java:39)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfAListOfElements.intercept(InterceptorOfAListOfElements.java:51)
+	at $java.util.ArrayList$$EnhancerByCGLIB$$c0a2d785.get(&lt;generated&gt;)
+	at screens.EasyFlightDestinationScreen.selectAirport(EasyFlightDestinationScreen.java:47)
 	at testcases.EasyTest.oneAdultOneChildRtn(EasyTest.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -106,11 +113,18 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1197498159", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1197498159'><pre>java.lang.NullPointerException
-	at utility.TakeScreenCapture.screenCapture(TakeScreenCapture.java:37)
-	at screens.EasyFlightScreen.selectFareType(EasyFlightScreen.java:93)
-	at screens.EasyFlightScreen.selectOutboundTicket(EasyFlightScreen.java:71)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1692073709", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1692073709'><pre>java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at io.appium.java_client.pagefactory.ElementListInterceptor.getObject(ElementListInterceptor.java:39)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfAListOfElements.intercept(InterceptorOfAListOfElements.java:51)
+	at $java.util.ArrayList$$EnhancerByCGLIB$$c0a2d785.get(&lt;generated&gt;)
+	at screens.EasyFlightDestinationScreen.selectAirport(EasyFlightDestinationScreen.java:47)
 	at testcases.EasyTest.oneAdultOneChildRtn(EasyTest.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -138,7 +152,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>59</td>
+<td>26</td>
 <td>testcases.EasyTest@7e07db1f</td></tr>
 </table><p>
 </body>

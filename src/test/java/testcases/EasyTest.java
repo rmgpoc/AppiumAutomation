@@ -10,12 +10,14 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import screens.EasyAddExtraScreen;
 import screens.EasyBookFlightScreen;
 import screens.EasyCalendarScreen;
 import screens.EasyFlightDestinationScreen;
 import screens.EasyFlightScreen;
 import screens.EasyHomeScreen;
 import screens.EasyPassengerCountScreen;
+import screens.EasyTravelSportsEquipmentScreen;
 
 public class EasyTest extends TestBase{
 	
@@ -28,6 +30,8 @@ public class EasyTest extends TestBase{
 	EasyCalendarScreen easyCalendar;
 	EasyPassengerCountScreen easyPassenger;
 	EasyFlightScreen easyGoingOut;
+	EasyAddExtraScreen easyAddExtraScreen;
+	EasyTravelSportsEquipmentScreen easyTravelSportsEquipmentScreen;
 	
 	@BeforeTest
 	public void init() throws InterruptedException, IOException{
@@ -37,6 +41,8 @@ public class EasyTest extends TestBase{
 		easyCalendar = new EasyCalendarScreen((AndroidDriver<MobileElement>) driver);
 		easyPassenger = new EasyPassengerCountScreen(driver);
 		easyGoingOut = new EasyFlightScreen(driver);
+		easyAddExtraScreen = new EasyAddExtraScreen((AndroidDriver<MobileElement>) driver);
+		easyTravelSportsEquipmentScreen = new EasyTravelSportsEquipmentScreen(driver);
 	}
 	
 	@Test(priority=1)
@@ -54,6 +60,12 @@ public class EasyTest extends TestBase{
 		easyBookFlight.showFlightsButton();
 		easyGoingOut.selectOutboundTicket("Standard", 1);
 		easyGoingOut.selectInboundTicket("Standard", 1);
+		easyAddExtraScreen.addBag15kg(1);
+		easyAddExtraScreen.addBag23kg(2);
+		easyAddExtraScreen.getLuggagePrice();
+		easyAddExtraScreen.addSportsEquipBtn();
+		easyTravelSportsEquipmentScreen.addSportsEquipment(0, 1, 0, 0, 0, 1, 0, 0, 0);
+		easyAddExtraScreen.finalPrice();
 	}
 
 }

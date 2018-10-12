@@ -2,31 +2,31 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="86082" started-at="2018-10-10T14:21:34Z" finished-at="2018-10-10T14:23:00Z">
+  <suite name="Suite" duration-ms="130261" started-at="2018-10-12T08:47:54Z" finished-at="2018-10-12T08:50:05Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="86082" started-at="2018-10-10T14:21:34Z" finished-at="2018-10-10T14:23:00Z">
+    <test name="Test" duration-ms="130261" started-at="2018-10-12T08:47:54Z" finished-at="2018-10-12T08:50:05Z">
       <class name="testcases.EasyTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.EasyTest@f5958c9]" name="setUp" is-config="true" duration-ms="26343" started-at="2018-10-10T14:21:08Z" finished-at="2018-10-10T14:21:34Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.EasyTest@f5958c9]" name="setUp" is-config="true" duration-ms="28202" started-at="2018-10-12T08:47:26Z" finished-at="2018-10-12T08:47:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="init()[pri:0, instance:testcases.EasyTest@f5958c9]" name="init" is-config="true" duration-ms="130" started-at="2018-10-10T14:21:34Z" finished-at="2018-10-10T14:21:34Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:testcases.EasyTest@f5958c9]" name="init" is-config="true" duration-ms="147" started-at="2018-10-12T08:47:54Z" finished-at="2018-10-12T08:47:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="oneAdultOneChildRtn(org.testng.ITestContext)[pri:1, instance:testcases.EasyTest@f5958c9]" name="oneAdultOneChildRtn" duration-ms="85929" started-at="2018-10-10T14:21:34Z" finished-at="2018-10-10T14:23:00Z">
+        <test-method status="PASS" signature="oneAdultOneChildRtn(org.testng.ITestContext)[pri:1, instance:testcases.EasyTest@f5958c9]" name="oneAdultOneChildRtn" duration-ms="130098" started-at="2018-10-12T08:47:55Z" finished-at="2018-10-12T08:50:05Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@878452d]]>
+                <![CDATA[org.testng.TestRunner@83298d7]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- oneAdultOneChildRtn -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:testcases.EasyTest@f5958c9]" name="tearDown" is-config="true" duration-ms="9256" started-at="2018-10-10T14:23:00Z" finished-at="2018-10-10T14:23:09Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:testcases.EasyTest@f5958c9]" name="tearDown" is-config="true" duration-ms="9426" started-at="2018-10-12T08:50:05Z" finished-at="2018-10-12T08:50:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

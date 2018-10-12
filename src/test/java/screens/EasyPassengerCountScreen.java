@@ -26,6 +26,9 @@ public class EasyPassengerCountScreen extends ScreenBase{
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/adultsMinus")
 	public MobileElement adultsMinusBtn;
 	
+	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/addPassengersTitle")
+	public MobileElement logPage;
+	
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/numOfChildren")
 	public MobileElement numOfChildrenText;
 	
@@ -125,6 +128,7 @@ public class EasyPassengerCountScreen extends ScreenBase{
 	}
 	
 	public void addPassengerCount(int adultCount, int childCount, int infantCount){
+		log.debug("*******Testing is being executed on: " + logPage.getText().trim() + " Screen.*******");
 		addAdultNumber(adultCount);
 		addChildNumber(childCount);
 		addInfantNumber(infantCount);

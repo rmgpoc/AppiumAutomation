@@ -24,6 +24,9 @@ public class EasyBookFlightScreen extends ScreenBase{
 	public List<MobileElement> flightTypeBtns;
 	
 	@AndroidFindBy(className="android.widget.TextView")
+	public List<MobileElement> logPage;
+	
+	@AndroidFindBy(className="android.widget.TextView")
 	public List<MobileElement> flightTypeLabels;
 	
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/departureAirportCompoundedText")
@@ -76,10 +79,11 @@ public class EasyBookFlightScreen extends ScreenBase{
 	
 	public void journeyType(String journeyType){
 		if(journeyType=="Return"){
-			log.debug("Return Flight Required");
+			log.debug("*******Testing is being executed on: " + logPage.get(0).getText().trim() + " Screen.*******");
 			departureBtn();
 		}else{
 			oneWayTrip();
+			log.debug("*******Testing is being executed on: " + logPage.get(0).getText().trim() + " Screen.*******");
 			departureBtn();
 		}
 	}
@@ -154,7 +158,7 @@ public class EasyBookFlightScreen extends ScreenBase{
 	
 	public void addPassenger(int adultCount, int childCount, int infantCount){
 		if(adultCount==1 && childCount==0 && infantCount == 0){
-			log.debug("Single Adult FLight");
+			log.debug("*******Single Adult FLight*******");
 		}else if(adultCount>1 && childCount==0 && infantCount == 0){
 			addAdultNumber(adultCount);
 		}else{
