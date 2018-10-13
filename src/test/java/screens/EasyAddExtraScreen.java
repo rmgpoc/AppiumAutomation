@@ -123,6 +123,14 @@ public class EasyAddExtraScreen extends ScreenBase2{
 		}
 	}
 	
+	public void addSportsEquipBtn(){
+		addSportsEquip.click();
+	}
+
+	public void passengerDetailsSubmitBtn(){
+		passengerDetailsSubmitBtn.click();
+	}
+	
 	public Double getLuggagePrice(){
 		logPage();
 		List<String> price = new ArrayList<String>();
@@ -159,11 +167,7 @@ public class EasyAddExtraScreen extends ScreenBase2{
 		calculatedLuggageCost=calculatedLuggageCosts;
 		return calculatedLuggageCost;
 	}
-	
-	public void addSportsEquipBtn(){
-		addSportsEquip.click();
-	}
-	
+		
 	public void finalPrice(){
 		String scrollDown = "Final Price";
 		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+scrollDown+"\").instance(0))");
@@ -173,34 +177,34 @@ public class EasyAddExtraScreen extends ScreenBase2{
 		log.debug("*******Luggage Cost is "+ luggageCost +".*******");
 		Double luggageCosts = Double.parseDouble(luggageCost.replaceAll("[^0-9]",""));
 		Double luggages = luggageCosts/100;
-		log.debug(luggages);
+		//log.debug(luggages);
 		
 		String sportsEquipCost = sportsEquipPrice.getText();
 		log.debug("*******Sports Equipment Cost is " + sportsEquipCost +"*******");
 		Double sportsCosts = Double.parseDouble(sportsEquipCost.replaceAll("[^0-9]",""));
 		Double sports = sportsCosts/100;
-		log.debug(sports);
+		//log.debug(sports);
 		
 		List<MobileElement> depPricelevel = linearLayout.get(25).findElementsByClassName("android.widget.TextView");
 		String outboundFlightCost = depPricelevel.get(1).getText() + depPricelevel.get(2).getText() + "." + depPricelevel.get(3).getText().trim();
 		log.debug("*******Outbound Flight Cost is " + outboundFlightCost + ".*******");
 		Double outboundCosts = Double.parseDouble(outboundFlightCost.replaceAll("[^0-9]",""));
 		Double outbound = outboundCosts/100;
-		log.debug(outbound);		
+		//log.debug(outbound);		
 		
 		List<MobileElement> inboundPrice = linearLayout.get(40).findElementsByClassName("android.widget.TextView");
 		String inboundFlightCost = inboundPrice.get(1).getText() + inboundPrice.get(2).getText() + "." + inboundPrice.get(3).getText().trim();
 		log.debug("*******Inbound Flight Cost is " + inboundFlightCost + ".*******");
 		Double inboundCosts = Double.parseDouble(inboundFlightCost.replaceAll("[^0-9]",""));
 		Double inbound = inboundCosts/100;
-		log.debug(inbound);
+		//log.debug(inbound);
 		
 		List<MobileElement> totalPrice = linearLayout.get(43).findElementsByClassName("android.widget.TextView");
 		String totalCost = totalPrice.get(1).getText() + totalPrice.get(2).getText() + "." + totalPrice.get(3).getText().trim();
 		log.debug("*******Total Flight Cost is " + totalCost + ".*******");
 		Double totalCosts = Double.parseDouble(totalCost.replaceAll("[^0-9]",""));
 		Double total = totalCosts/100;
-		log.debug(total);
+		//log.debug(total);
 		
 		Double finalCosts = outbound + inbound + calculatedLuggageCost + EasyTravelSportsEquipmentScreen.calculatedSportsCost;
 
@@ -213,8 +217,5 @@ public class EasyAddExtraScreen extends ScreenBase2{
 		passengerDetailsSubmitBtn();
 	}
 	
-	public void passengerDetailsSubmitBtn(){
-		passengerDetailsSubmitBtn.click();
-	}
 
 }
