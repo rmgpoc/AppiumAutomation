@@ -4,12 +4,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.support.PageFactory;
 
-import base.ScreenBase;
 import base.ScreenBase2;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;

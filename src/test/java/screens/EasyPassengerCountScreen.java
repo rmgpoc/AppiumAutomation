@@ -12,6 +12,8 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class EasyPassengerCountScreen extends ScreenBase{
 
+	public static int PassengerCount;
+
 	public EasyPassengerCountScreen(AppiumDriver<MobileElement> driver) {
 		super(driver);
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), this);
@@ -127,12 +129,15 @@ public class EasyPassengerCountScreen extends ScreenBase{
 		doneBtn.click();
 	}
 	
-	public void addPassengerCount(int adultCount, int childCount, int infantCount){
+	public int addPassengerCount(int adultCount, int childCount, int infantCount){
 		log.debug("*******Testing is being executed on: " + logPage.getText().trim() + " Screen.*******");
 		addAdultNumber(adultCount);
 		addChildNumber(childCount);
 		addInfantNumber(infantCount);
+		int PassengerCounts = adultCount+childCount+infantCount;
+		PassengerCount=PassengerCounts;
 		doneBtn();
+		return PassengerCount;
 	}
 
 }

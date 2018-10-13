@@ -1,40 +1,43 @@
-12/10/2018 09:47:30 devpinoyLogger Appium Server Started
-12/10/2018 09:47:30 devpinoyLogger Loading Android Properties file and Starting Android Application
-12/10/2018 09:47:55 devpinoyLogger ########Executing TC1 - Purchase One Adult One Child Return Ticket TestCase########
-12/10/2018 09:47:59 devpinoyLogger *******Testing is being executed on: Book Flight Screen.*******
-12/10/2018 09:48:03 devpinoyLogger *******Testing is being executed on: All Airports Screen.*******
-12/10/2018 09:48:21 devpinoyLogger *******Testing is being executed on: All Airports Screen.*******
-12/10/2018 09:48:28 devpinoyLogger *******Return Flight Travel Airports have been selected*******
-12/10/2018 09:48:30 devpinoyLogger *******Testing is being executed on Calendar Screen.*******
-12/10/2018 09:48:44 devpinoyLogger *******Testing is being executed on: Add Passengers Screen.*******
-12/10/2018 09:48:52 devpinoyLogger *******Testing is being executed on: going out Screen.*******
-12/10/2018 09:48:59 devpinoyLogger *******Travel date is MON 22 OCTOBER*******
-12/10/2018 09:48:59 devpinoyLogger *******Standard Ticket Cost is £41:38.*******
-12/10/2018 09:49:00 devpinoyLogger *******Flight Departs LTN at 13:10 and Arrives BFS at 14:25.*******
-12/10/2018 09:49:04 devpinoyLogger *******Testing is being executed on: coming back Screen.*******
-12/10/2018 09:49:14 devpinoyLogger *******Travel date is WED 31 OCTOBER*******
-12/10/2018 09:49:15 devpinoyLogger *******Standard Ticket Cost is £38:35.*******
-12/10/2018 09:49:15 devpinoyLogger *******Flight Departs BFS at 16:30 and Arrives LTN at 17:40.*******
-12/10/2018 09:49:22 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
-12/10/2018 09:49:27 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
-12/10/2018 09:49:34 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
-12/10/2018 09:49:39 devpinoyLogger *******Additional Luggage Cost is £15.99 per bag, per flight £18.49 per bag, per flight £105:94.*******
-12/10/2018 09:49:41 devpinoyLogger *******Small items priced at £74.00 each*******
-12/10/2018 09:49:42 devpinoyLogger *******Testing is being executed on: flight options Screen.*******
-12/10/2018 09:49:42 devpinoyLogger *******Golf Equipment not required*******
-12/10/2018 09:49:42 devpinoyLogger *******Snowboard Equipment not required*******
-12/10/2018 09:49:42 devpinoyLogger *******SportFirearms Equipment not required*******
-12/10/2018 09:49:42 devpinoyLogger *******Other Small Sports Equipment not required*******
-12/10/2018 09:49:43 devpinoyLogger *******Large items priced at £90.00 each*******
-12/10/2018 09:49:43 devpinoyLogger *******Canoe/Kayak Equipment not required*******
-12/10/2018 09:49:43 devpinoyLogger *******Wind Surfer Equipment not required*******
-12/10/2018 09:49:43 devpinoyLogger *******Hang Glider Equipment not required*******
-12/10/2018 09:49:45 devpinoyLogger *******Additional Sports Equipment Cost is £164:00.*******
-12/10/2018 09:49:54 devpinoyLogger *******Luggage Cost is £105:94.*******
-12/10/2018 09:49:54 devpinoyLogger *******Sports Equipment Cost is £164.00*******
-12/10/2018 09:49:56 devpinoyLogger *******Outbound Flight Cost is £69:76.*******
-12/10/2018 09:49:58 devpinoyLogger *******Inbound Flight Cost is £63:70.*******
-12/10/2018 09:50:00 devpinoyLogger *******Total Flight Cost is Belfast Intl (BFS)Arrives BFS:14:25.*******
-12/10/2018 09:50:02 devpinoyLogger *******Test Cost is 16:30Arrives LTN:17:40.*******
-12/10/2018 09:50:04 devpinoyLogger *******Total Flight Cost is London Luton (LTN)Belfast Intl (BFS):Departs LTN.*******
-12/10/2018 09:50:14 devpinoyLogger Appium Server Stopped
+13/10/2018 21:03:48 devpinoyLogger Appium Server Started
+13/10/2018 21:03:48 devpinoyLogger Loading Android Properties file and Starting Android Application
+13/10/2018 21:04:14 devpinoyLogger ########Executing TC1 - Purchase One Adult One Child Return Ticket TestCase########
+13/10/2018 21:04:17 devpinoyLogger *******Testing is being executed on: Book Flight Screen.*******
+13/10/2018 21:04:21 devpinoyLogger *******Testing is being executed on: All Airports Screen.*******
+13/10/2018 21:04:35 devpinoyLogger *******Testing is being executed on: All Airports Screen.*******
+13/10/2018 21:04:43 devpinoyLogger *******Return Flight Travel Airports have been selected*******
+13/10/2018 21:04:44 devpinoyLogger *******Testing is being executed on Calendar Screen.*******
+13/10/2018 21:04:59 devpinoyLogger *******Testing is being executed on: Add Passengers Screen.*******
+13/10/2018 21:05:07 devpinoyLogger *******Testing is being executed on: going out Screen.*******
+13/10/2018 21:05:13 devpinoyLogger *******Travel date is MON 22 OCTOBER*******
+13/10/2018 21:05:13 devpinoyLogger *******Standard Ticket Cost is £37:34.*******
+13/10/2018 21:05:14 devpinoyLogger *******Flight Departs LTN at 13:10 and Arrives BFS at 14:25.*******
+13/10/2018 21:05:18 devpinoyLogger *******Testing is being executed on: coming back Screen.*******
+13/10/2018 21:05:28 devpinoyLogger *******Travel date is WED 31 OCTOBER*******
+13/10/2018 21:05:29 devpinoyLogger *******Standard Ticket Cost is £43:40.*******
+13/10/2018 21:05:29 devpinoyLogger *******Flight Departs BFS at 16:30 and Arrives LTN at 17:40.*******
+13/10/2018 21:05:36 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
+13/10/2018 21:05:42 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
+13/10/2018 21:05:48 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
+13/10/2018 21:05:53 devpinoyLogger *******Total Calculated 15kg Luggage Cost for total passengers is 31.98.*******
+13/10/2018 21:05:54 devpinoyLogger *******Total Calculated 23kg Luggage Cost for total passengers is 73.96.*******
+13/10/2018 21:05:54 devpinoyLogger *******Total Luggage Cost (15kg + 23kg) for total passengers is £105.94.*******
+13/10/2018 21:05:57 devpinoyLogger *******Testing is being executed on: flight options Screen.*******
+13/10/2018 21:05:57 devpinoyLogger *******Golf Equipment not required*******
+13/10/2018 21:05:57 devpinoyLogger *******Snow Board Equipment not required*******
+13/10/2018 21:05:57 devpinoyLogger *******SportFirearms Equipment not required*******
+13/10/2018 21:05:57 devpinoyLogger *******Other Small Sports Equipment not required*******
+13/10/2018 21:05:58 devpinoyLogger *******Canoe/Kayak Equipment not required*******
+13/10/2018 21:05:58 devpinoyLogger *******Wind Surfer Equipment not required*******
+13/10/2018 21:05:58 devpinoyLogger *******Hang Glider Equipment not required*******
+13/10/2018 21:06:00 devpinoyLogger *******Additional Sports Equipment Cost is £164.00.*******
+13/10/2018 21:06:13 devpinoyLogger *******Luggage Cost is £105.94.*******
+13/10/2018 21:06:13 devpinoyLogger 105.94
+13/10/2018 21:06:13 devpinoyLogger *******Sports Equipment Cost is £164.00*******
+13/10/2018 21:06:13 devpinoyLogger 164.0
+13/10/2018 21:06:15 devpinoyLogger *******Outbound Flight Cost is £61.68.*******
+13/10/2018 21:06:15 devpinoyLogger 61.68
+13/10/2018 21:06:16 devpinoyLogger *******Inbound Flight Cost is £73.80.*******
+13/10/2018 21:06:16 devpinoyLogger 73.8
+13/10/2018 21:06:17 devpinoyLogger *******Total Flight Cost is £405.42.*******
+13/10/2018 21:06:17 devpinoyLogger 405.42
+13/10/2018 21:06:28 devpinoyLogger Appium Server Stopped

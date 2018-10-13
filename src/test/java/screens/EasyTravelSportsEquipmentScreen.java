@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import base.ScreenBase;
 import io.appium.java_client.AppiumDriver;
@@ -13,6 +14,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class EasyTravelSportsEquipmentScreen extends ScreenBase{
+	
+	public static Double calculatedSportsCost;
 
 	public static Logger log = Logger.getLogger("devpinoyLogger");
 	public EasyTravelSportsEquipmentScreen(AppiumDriver<MobileElement> driver) {
@@ -76,15 +79,15 @@ public class EasyTravelSportsEquipmentScreen extends ScreenBase{
 	}
 	
 	public void minusSkiEquipment20kg(int count){
-		int equipCount = Integer.parseInt(sportsWrapper.get(1).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		for(int i=equipCount; i>count; i--){
+		int skiCount = Integer.parseInt(sportsWrapper.get(1).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		for(int i=skiCount; i>count; i--){
 			sportsWrapper.get(1).findElementById("com.mttnow.droid.easyjet:id/minus_btn").click();
 		}
 	}
 	
 	public void addSnowboardEquipment20kg(int count){
 		if(count == 0){
-			log.debug("*******Snowboard Equipment not required*******");
+			log.debug("*******Snow Board Equipment not required*******");
 		}else{
 			for(int i=0; i<count; i++){
 				sportsWrapper.get(2).findElementById("com.mttnow.droid.easyjet:id/plus_btn").click();
@@ -93,8 +96,8 @@ public class EasyTravelSportsEquipmentScreen extends ScreenBase{
 	}
 	
 	public void minusSnowboardEquipment20kg(int count){
-		int equipCount = Integer.parseInt(sportsWrapper.get(2).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		for(int i=equipCount; i>count; i--){
+		int snowboardCount = Integer.parseInt(sportsWrapper.get(2).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		for(int i=snowboardCount; i>count; i--){
 			sportsWrapper.get(2).findElementById("com.mttnow.droid.easyjet:id/minus_btn").click();
 		}
 	}
@@ -110,8 +113,8 @@ public class EasyTravelSportsEquipmentScreen extends ScreenBase{
 	}
 	
 	public void minusSportFirearmsEquipment20kg(int count){
-		int equipCount = Integer.parseInt(sportsWrapper.get(3).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		for(int i=equipCount; i>count; i--){
+		int sportsFirearmsCount = Integer.parseInt(sportsWrapper.get(3).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		for(int i=sportsFirearmsCount; i>count; i--){
 			sportsWrapper.get(3).findElementById("com.mttnow.droid.easyjet:id/minus_btn").click();
 		}
 	}
@@ -127,8 +130,8 @@ public class EasyTravelSportsEquipmentScreen extends ScreenBase{
 	}
 	
 	public void minusOtherSmallSportsEquipment20kg(int count){
-		int equipCount = Integer.parseInt(sportsWrapper.get(4).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		for(int i=equipCount; i>count; i--){
+		int otherSmallEquipCount = Integer.parseInt(sportsWrapper.get(4).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		for(int i=otherSmallEquipCount; i>count; i--){
 			sportsWrapper.get(4).findElementById("com.mttnow.droid.easyjet:id/minus_btn").click();
 		}
 	}
@@ -144,8 +147,8 @@ public class EasyTravelSportsEquipmentScreen extends ScreenBase{
 	}
 	
 	public void minusBicycleEquipment20kg(int count){
-		int equipCount = Integer.parseInt(sportsWrapper.get(5).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		for(int i=equipCount; i>count; i--){
+		int bicycleCount = Integer.parseInt(sportsWrapper.get(5).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		for(int i=bicycleCount; i>count; i--){
 			sportsWrapper.get(5).findElementById("com.mttnow.droid.easyjet:id/minus_btn").click();
 		}
 	}
@@ -161,8 +164,8 @@ public class EasyTravelSportsEquipmentScreen extends ScreenBase{
 	}
 	
 	public void minusCanoeEquipment20kg(int count){
-		int equipCount = Integer.parseInt(sportsWrapper.get(6).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		for(int i=equipCount; i>count; i--){
+		int canoeCount = Integer.parseInt(sportsWrapper.get(6).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		for(int i=canoeCount; i>count; i--){
 			sportsWrapper.get(6).findElementById("com.mttnow.droid.easyjet:id/minus_btn").click();
 		}
 	}
@@ -178,8 +181,8 @@ public class EasyTravelSportsEquipmentScreen extends ScreenBase{
 	}
 	
 	public void minusWindSurferEquipment20kg(int count){
-		int equipCount = Integer.parseInt(sportsWrapper.get(7).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		for(int i=equipCount; i>count; i--){
+		int windSurferCount = Integer.parseInt(sportsWrapper.get(7).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		for(int i=windSurferCount; i>count; i--){
 			sportsWrapper.get(7).findElementById("com.mttnow.droid.easyjet:id/minus_btn").click();
 		}
 	}
@@ -195,33 +198,88 @@ public class EasyTravelSportsEquipmentScreen extends ScreenBase{
 	}
 	
 	public void minusHangGliderEquipment20kg(int count){
-		int equipCount = Integer.parseInt(sportsWrapper.get(8).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		for(int i=equipCount; i>count; i--){
+		int hangGliderCount = Integer.parseInt(sportsWrapper.get(8).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		for(int i=hangGliderCount; i>count; i--){
 			sportsWrapper.get(8).findElementById("com.mttnow.droid.easyjet:id/minus_btn").click();
 		}
 	}
 	
+	public void smallItemEquipCosts(){
+		log.debug("*******"+smallItemEquipCost.getText()+"*******");
+//		Double smallItemCost = Double.parseDouble(smallItemEquipCost.getText().replaceAll("[^0-9]",""));
+//		Double smallEquipCost = smallItemCost/100;
+//		log.debug(smallEquipCost);
+	}
+	
+	public void largeItemEquipCosts(){
+		log.debug("*******"+largeItemEquipCost.getText()+"*******");
+//		Double largeItemCost = Double.parseDouble(largeItemEquipCost.getText().replaceAll("[^0-9]",""));
+//		Double largeEquipCost = largeItemCost/100;
+//		log.debug(largeEquipCost);
+	}
+	
 	public void totalSportsEquipAddtionalCost(){
-		log.debug("*******Additional Sports Equipment Cost is " + additionalCost.findElementsByClassName("android.widget.TextView").get(1).getText().trim() + additionalCost.findElementsByClassName("android.widget.TextView").get(2).getText().trim() + ":" + additionalCost.findElementsByClassName("android.widget.TextView").get(3).getText().trim() + ".*******");
+		String totalSportsEquipCost = additionalCost.findElementsByClassName("android.widget.TextView").get(1).getText().trim() + additionalCost.findElementsByClassName("android.widget.TextView").get(2).getText().trim() + "." + additionalCost.findElementsByClassName("android.widget.TextView").get(3).getText().trim();
+		log.debug("*******Additional Sports Equipment Cost is " + totalSportsEquipCost + ".*******");
+//		Double totalSportsCosts = Double.parseDouble(totalSportsEquipCost.replaceAll("[^0-9]",""));
+//		Double totalSports = totalSportsCosts/100;
+//		log.debug(totalSports);
 	}
 	
 	public void submitButton(){
 		submitButton.click();
 	}
 	
+	public Double validateTotalSportsCost(){
+		int equipCount = Integer.parseInt(sportsWrapper.get(0).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		int skiCount = Integer.parseInt(sportsWrapper.get(1).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		int snowboardCount = Integer.parseInt(sportsWrapper.get(2).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		int sportsFirearmsCount = Integer.parseInt(sportsWrapper.get(3).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		int otherSmallEquipCount = Integer.parseInt(sportsWrapper.get(4).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		
+		int smallCount = equipCount+skiCount+snowboardCount+sportsFirearmsCount+otherSmallEquipCount;
+		
+		Double smallItemCost = Double.parseDouble(smallItemEquipCost.getText().replaceAll("[^0-9]",""));
+		Double smallEquipCost = smallItemCost/100;
+		Double smallEquip20kgCost = smallEquipCost * smallCount;
+		//log.debug(smallEquip20kgCost);
+		
+		int bicycleCount = Integer.parseInt(sportsWrapper.get(5).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		int canoeCount = Integer.parseInt(sportsWrapper.get(6).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		int windSurferCount = Integer.parseInt(sportsWrapper.get(7).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		int hangGliderCount = Integer.parseInt(sportsWrapper.get(8).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
+		
+		int largeCount = bicycleCount+canoeCount+windSurferCount+hangGliderCount;
+		
+		Double largeItemCost = Double.parseDouble(largeItemEquipCost.getText().replaceAll("[^0-9]",""));
+		Double largeEquipCost = largeItemCost/100;
+		Double smallEquip32kgCost = largeEquipCost * largeCount;
+		//log.debug(smallEquip32kgCost);
+		
+		String totalSportsEquipCost = additionalCost.findElementsByClassName("android.widget.TextView").get(1).getText().trim() + additionalCost.findElementsByClassName("android.widget.TextView").get(2).getText().trim() + "." + additionalCost.findElementsByClassName("android.widget.TextView").get(3).getText().trim();
+		Double totalSportsCosts = Double.parseDouble(totalSportsEquipCost.replaceAll("[^0-9]",""));
+		Double totalSports = totalSportsCosts/100;
+		//log.debug(totalSports);
+		
+		Double calculatedLuggageCosts = smallEquip20kgCost+smallEquip32kgCost;
+		Assert.assertTrue(smallEquip20kgCost+smallEquip32kgCost==totalSports, "Calculation of Total Sports Equipment is incorrect");
+		//log.debug(smallEquip20kgCost+smallEquip32kgCost);
+		calculatedSportsCost=calculatedLuggageCosts;
+		return calculatedSportsCost;
+	}
+	
 	public void addSportsEquipment(int GolfCount, int SkiCount, int SnowBoardCount, int FirearmsCount, int SmallEquipCount, int BicycleCount, int CanoeCount, int WindSurferCount, int HangGliderCount){
-		log.debug("*******"+smallItemEquipCost.getText()+"*******");
 		addGolfEquipment20kg(GolfCount);
 		addSkiEquipment20kg(SkiCount);
 		addSnowboardEquipment20kg(SnowBoardCount);
 		addSportFirearmsEquipment20kg(FirearmsCount);
 		addOtherSmallSportsEquipment20kg(SmallEquipCount);
-		log.debug("*******"+largeItemEquipCost.getText()+"*******");
 		addBicycleEquipment32kg(BicycleCount);
 		addCanoeEquipment32kg(CanoeCount);
 		addWindSurferEquipment32kg(WindSurferCount);
 		addHangGliderEquipment32kg(HangGliderCount);
 		totalSportsEquipAddtionalCost();
+		validateTotalSportsCost();
 		submitButton();
 	}
 
