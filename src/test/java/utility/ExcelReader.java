@@ -1,17 +1,20 @@
 package utility;
 
+import org.apache.poi.common.usermodel.HyperlinkType;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFHyperlink;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
-
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.xssf.usermodel.*;
 
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.Calendar;
 
 
@@ -86,10 +89,11 @@ public class ExcelReader {
 		if(cell==null)
 			return "";
 		
-		if(cell.getCellType()==Cell.CELL_TYPE_STRING)
+		if(cell.getCellType()==CellType.STRING)
 			  return cell.getStringCellValue();
-		else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC || cell.getCellType()==Cell.CELL_TYPE_FORMULA ){
-			  
+		else if(cell.getCellType()==CellType.NUMERIC || cell.getCellType()==CellType.FORMULA){
+				/*int i = (int)cell.getNumericCellValue(); 
+				String cellText = String.valueOf(i); */
 			  String cellText  = String.valueOf(cell.getNumericCellValue());
 			  if (HSSFDateUtil.isCellDateFormatted(cell)) {
 		           
@@ -102,15 +106,10 @@ public class ExcelReader {
 		           cellText = cal.get(Calendar.DAY_OF_MONTH) + "/" +
 		                      cal.get(Calendar.MONTH)+1 + "/" + 
 		                      cellText;
-		           
-		          
-
 		         }
-
-			  
 			  
 			  return cellText;
-		  }else if(cell.getCellType()==Cell.CELL_TYPE_BLANK)
+		  }else if(cell.getCellType()==CellType.BLANK)
 		      return ""; 
 		  else 
 			  return String.valueOf(cell.getBooleanCellValue());
@@ -123,6 +122,56 @@ public class ExcelReader {
 		}
 	}
 	
+	
+	public Object getCellDataObjects(String sheetName,int colNum,int rowNum){
+		try{
+			if(rowNum <=0)
+				return "";
+		
+		int index = workbook.getSheetIndex(sheetName);
+
+		if(index==-1)
+			return "";
+		
+	
+		sheet = workbook.getSheetAt(index);
+		row = sheet.getRow(rowNum-1);
+		if(row==null)
+			return "";
+		cell = row.getCell(colNum);
+		if(cell==null)
+			return "";
+		
+	  if(cell.getCellType()==CellType.STRING)
+		  return cell.getRichStringCellValue().getString();
+	  else if(cell.getCellType()==CellType.NUMERIC || cell.getCellType()==CellType.FORMULA ){
+		  
+		  String cellText  = new BigDecimal(cell.getNumericCellValue()).toPlainString();
+		  
+		  if (HSSFDateUtil.isCellDateFormatted(cell)) {
+	           // format in form of M/D/YY
+			  double d = cell.getNumericCellValue();
+
+			  Calendar cal =Calendar.getInstance();
+			  cal.setTime(HSSFDateUtil.getJavaDate(d));
+	          cellText = (String.valueOf(cal.get(Calendar.YEAR))).substring(2);
+	          cellText = cal.get(Calendar.MONTH)+1 + "/" + cal.get(Calendar.DAY_OF_MONTH) + "/" + cellText;
+
+	         }
+	  
+		  return cellText;
+		  
+	  }else if(cell.getCellType()==CellType.BLANK)
+	      return "";
+	  else 
+		  return String.valueOf(cell.getBooleanCellValue());
+		}
+		catch(Exception e){
+			
+			e.printStackTrace();
+			return "row "+rowNum+" or column "+colNum +" does not exist  in xls";
+		}
+	}
 	
 	
 	// returns the data from a cell
@@ -145,9 +194,9 @@ public class ExcelReader {
 		if(cell==null)
 			return "";
 		
-	  if(cell.getCellType()==Cell.CELL_TYPE_STRING)
+	  if(cell.getCellType()==CellType.STRING)
 		  return cell.getStringCellValue();
-	  else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC || cell.getCellType()==Cell.CELL_TYPE_FORMULA ){
+	  else if(cell.getCellType()==CellType.NUMERIC || cell.getCellType()==CellType.FORMULA ){
 		  
 		  String cellText  = String.valueOf(cell.getNumericCellValue());
 		  if (HSSFDateUtil.isCellDateFormatted(cell)) {
@@ -169,7 +218,7 @@ public class ExcelReader {
 		  
 		  
 		  return cellText;
-	  }else if(cell.getCellType()==Cell.CELL_TYPE_BLANK)
+	  }else if(cell.getCellType()==CellType.BLANK)
 	      return "";
 	  else 
 		  return String.valueOf(cell.getBooleanCellValue());
@@ -238,7 +287,7 @@ public class ExcelReader {
 	}
 	
 	
-/*	
+	
 	// returns true if data is set successfully else false
 	public boolean setCellData(String sheetName,String colName,int rowNum, String data,String url){
 		
@@ -287,7 +336,7 @@ public class ExcelReader {
 	    hlink_style.setFont(hlink_font);
 	    //hlink_style.setWrapText(true);
 
-	    XSSFHyperlink link = createHelper.createHyperlink(XSSFHyperlink.LINK_FILE);
+	    XSSFHyperlink link = createHelper.createHyperlink(HyperlinkType.FILE);
 	    link.setAddress(url);
 	    cell.setHyperlink(link);
 	    cell.setCellStyle(hlink_style);
@@ -305,7 +354,7 @@ public class ExcelReader {
 		return true;
 	}
 	
-*/	
+	
 	
 	// returns true if sheet is created successfully else false
 	public boolean addSheet(String  sheetname){		
@@ -343,7 +392,7 @@ public class ExcelReader {
 	}
 	
 	
-/*	
+	
 	// returns true if column is created successfully
 	public boolean addColumn(String sheetName,String colName){
 		
@@ -356,8 +405,8 @@ public class ExcelReader {
 				return false;
 			
 		XSSFCellStyle style = workbook.createCellStyle();
-		style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
-		style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+		style.setFillForegroundColor(HSSFColor.HSSFColorPredefined.GREY_40_PERCENT.getIndex());
+		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		
 		sheet=workbook.getSheetAt(index);
 		
@@ -387,9 +436,9 @@ public class ExcelReader {
 		
 		
 	}
-*/	
 	
-/*	
+	
+	
 	// removes a column and all the contents
 	public boolean removeColumn(String sheetName, int colNum) {
 		try{
@@ -399,9 +448,9 @@ public class ExcelReader {
 		workbook = new XSSFWorkbook(fis);
 		sheet=workbook.getSheet(sheetName);
 		XSSFCellStyle style = workbook.createCellStyle();
-		style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
+		style.setFillForegroundColor(HSSFColor.HSSFColorPredefined.GREY_40_PERCENT.getIndex());
 		XSSFCreationHelper createHelper = workbook.getCreationHelper();
-		style.setFillPattern(HSSFCellStyle.NO_FILL);
+		style.setFillPattern(FillPatternType.NO_FILL);
 		
 	    
 	
@@ -427,7 +476,7 @@ public class ExcelReader {
 		
 	}
 	
-*/	
+	
   // find whether sheets exists	
 	public boolean isSheetExist(String sheetName){
 		int index = workbook.getSheetIndex(sheetName);
@@ -461,7 +510,7 @@ public class ExcelReader {
 		
 	}
 	
-/*	
+	
 	//String sheetName, String testCaseName,String keyword ,String URL,String message
 	public boolean addHyperLink(String sheetName,String screenShotColName,String testCaseName,int index,String url,String message){
 		
@@ -483,7 +532,7 @@ public class ExcelReader {
 
 		return true; 
 	}
-*/	
+	
 	
 	public int getCellRowNum(String sheetName,String colName,String cellValue){
 		

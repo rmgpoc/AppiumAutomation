@@ -261,14 +261,25 @@ public class EasyTravelSportsEquipmentScreen extends ScreenBase{
 		Double totalSports = totalSportsCosts/100;
 		//log.debug(totalSports);
 		
-		Double calculatedLuggageCosts = smallEquip20kgCost+smallEquip32kgCost;
-		Assert.assertTrue(smallEquip20kgCost+smallEquip32kgCost==totalSports, "Calculation of Total Sports Equipment is incorrect");
+		Double calculatedPortsCosts = smallEquip20kgCost+smallEquip32kgCost;
+		log.debug("*******Calculation of Total Sports Equipment: Expected value is £"+ calculatedPortsCosts + " and Actual value is £" + totalSports +"*******");
+		Assert.assertTrue(smallEquip20kgCost+smallEquip32kgCost==totalSports, "Calculation of Total Sports Equipment is incorrect. Expected value is £"+ calculatedPortsCosts + " and Actual value is £" + totalSports);
 		//log.debug(smallEquip20kgCost+smallEquip32kgCost);
-		calculatedSportsCost=calculatedLuggageCosts;
+		calculatedSportsCost=calculatedPortsCosts;
 		return calculatedSportsCost;
 	}
 	
-	public void addSportsEquipment(int GolfCount, int SkiCount, int SnowBoardCount, int FirearmsCount, int SmallEquipCount, int BicycleCount, int CanoeCount, int WindSurferCount, int HangGliderCount){
+	public void addSportsEquipment(String addGolfEquipment20kg, String addSkiEquipment20kg, String addSnowboardEquipment20kg, String addSportFirearmsEquipment20kg, String addOtherSmallSportsEquipment20kg, String addBicycleEquipment32kg, String addCanoeEquipment32kg, String addWindSurferEquipment32kg, String addHangGliderEquipment32kg){
+		int GolfCount = Integer.valueOf(addGolfEquipment20kg);
+		int SkiCount = Integer.valueOf(addSkiEquipment20kg);
+		int SnowBoardCount = Integer.valueOf(addSnowboardEquipment20kg);
+		int FirearmsCount = Integer.valueOf(addSportFirearmsEquipment20kg);
+		int SmallEquipCount = Integer.valueOf(addOtherSmallSportsEquipment20kg);
+		int BicycleCount = Integer.valueOf(addBicycleEquipment32kg);
+		int CanoeCount = Integer.valueOf(addCanoeEquipment32kg);
+		int WindSurferCount = Integer.valueOf(addWindSurferEquipment32kg);
+		int HangGliderCount = Integer.valueOf(addHangGliderEquipment32kg);
+		
 		addGolfEquipment20kg(GolfCount);
 		addSkiEquipment20kg(SkiCount);
 		addSnowboardEquipment20kg(SnowBoardCount);

@@ -41,8 +41,7 @@ public class TestUtil extends TestBase {
 
 			for (int colNum = 0; colNum < cols; colNum++) {
 
-				// data[rowNum-2][colNum]= excel.getCellData(sheetName, colNum,
-				// rowNum);
+				// data[rowNum-2][colNum]= excel.getCellData(sheetName, colNum, rowNum);
 
 				table.put(excel.getCellData(sheetName, colNum, 1), excel.getCellData(sheetName, colNum, rowNum));
 				data[rowNum - 2][0] = table;
@@ -62,18 +61,11 @@ public class TestUtil extends TestBase {
 
 		Object[][] data = new Object[rows - 1][cols];
 
-		//Hashtable<String, String> table = null;
-
 		for (int rowNum = 2; rowNum <= rows; rowNum++) {
-
-			//table = new Hashtable<String, String>();
 
 			for (int colNum = 0; colNum < cols; colNum++) {
 
-				data[rowNum-2][colNum]= excel.getCellData(sheetName, colNum, rowNum);
-
-				//table.put(excel.getCellData(sheetName, colNum, 1), excel.getCellData(sheetName, colNum, rowNum));
-				//data[rowNum - 2][0] = table;
+				data[rowNum-2][colNum]= excel.getCellDataObjects(sheetName, colNum, rowNum);
 
 			}
 

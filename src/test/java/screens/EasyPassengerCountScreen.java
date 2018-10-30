@@ -12,7 +12,9 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class EasyPassengerCountScreen extends ScreenBase{
 
-	public static int PassengerCount;
+	public static int adultCt;
+	public static int childCt;
+	public static int infantCt;
 
 	public EasyPassengerCountScreen(AppiumDriver<MobileElement> driver) {
 		super(driver);
@@ -52,13 +54,16 @@ public class EasyPassengerCountScreen extends ScreenBase{
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/submit_button")
 	public MobileElement doneBtn;
 	
-	public void addAdultNumber(int adultCount){
+	public int addAdultNumber(int adultCount){
 		int countAdult = Integer.parseInt(numOfAdultsText.getText());
 		if (countAdult<adultCount){
 			addAdultCount(adultCount);
 		}else if (countAdult>adultCount){
 			minusAdultCount(adultCount);
 		}
+		int adultCounts = adultCount;
+		adultCt=adultCounts;
+		return adultCt;
 	}
 	
 	public void addAdultCount(int adultCount){
@@ -77,13 +82,16 @@ public class EasyPassengerCountScreen extends ScreenBase{
 		}		
 	}
 	
-	public void addChildNumber(int childCount){
+	public int addChildNumber(int childCount){
 		int countChild = Integer.parseInt(numOfChildrenText.getText());
 		if (countChild<childCount){
 			addChildNumberBtn(childCount);
 		}else if (countChild>childCount){
 			minusChildNumberBtn(childCount);
 		}
+		int childCounts = childCount;
+		childCt=childCounts;
+		return childCt;
 	}
 	
 	public void addChildNumberBtn(int childCount){
@@ -101,13 +109,16 @@ public class EasyPassengerCountScreen extends ScreenBase{
 		}
 	}
 	
-	public void addInfantNumber(int infantCount){
+	public int addInfantNumber(int infantCount){
 		int countInfant = Integer.parseInt(numOfInfantsText.getText());
 		if (countInfant<infantCount){
 			addInfantNumberBtn(infantCount);
 		}else if (countInfant>infantCount){
 			minusInfantNumberBtn(infantCount);
 		}
+		int infantCounts = infantCount;
+		infantCt=infantCounts;
+		return infantCt;
 	}
 	
 	public void addInfantNumberBtn(int infantCount){
@@ -129,15 +140,15 @@ public class EasyPassengerCountScreen extends ScreenBase{
 		doneBtn.click();
 	}
 	
-	public int addPassengerCount(int adultCount, int childCount, int infantCount){
+	public void addPassengerCount(String adult, String child, String infant){
 		log.debug("*******Testing is being executed on: " + logPage.getText().trim() + " Screen.*******");
+		int adultCount = Integer.valueOf(adult);
+		int childCount = Integer.valueOf(child);
+		int infantCount = Integer.valueOf(infant);
 		addAdultNumber(adultCount);
 		addChildNumber(childCount);
 		addInfantNumber(infantCount);
-		int PassengerCounts = adultCount+childCount+infantCount;
-		PassengerCount=PassengerCounts;
 		doneBtn();
-		return PassengerCount;
 	}
 
 }

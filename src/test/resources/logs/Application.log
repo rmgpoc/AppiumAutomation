@@ -1,43 +1,48 @@
-13/10/2018 21:03:48 devpinoyLogger Appium Server Started
-13/10/2018 21:03:48 devpinoyLogger Loading Android Properties file and Starting Android Application
-13/10/2018 21:04:14 devpinoyLogger ########Executing TC1 - Purchase One Adult One Child Return Ticket TestCase########
-13/10/2018 21:04:17 devpinoyLogger *******Testing is being executed on: Book Flight Screen.*******
-13/10/2018 21:04:21 devpinoyLogger *******Testing is being executed on: All Airports Screen.*******
-13/10/2018 21:04:35 devpinoyLogger *******Testing is being executed on: All Airports Screen.*******
-13/10/2018 21:04:43 devpinoyLogger *******Return Flight Travel Airports have been selected*******
-13/10/2018 21:04:44 devpinoyLogger *******Testing is being executed on Calendar Screen.*******
-13/10/2018 21:04:59 devpinoyLogger *******Testing is being executed on: Add Passengers Screen.*******
-13/10/2018 21:05:07 devpinoyLogger *******Testing is being executed on: going out Screen.*******
-13/10/2018 21:05:13 devpinoyLogger *******Travel date is MON 22 OCTOBER*******
-13/10/2018 21:05:13 devpinoyLogger *******Standard Ticket Cost is £37:34.*******
-13/10/2018 21:05:14 devpinoyLogger *******Flight Departs LTN at 13:10 and Arrives BFS at 14:25.*******
-13/10/2018 21:05:18 devpinoyLogger *******Testing is being executed on: coming back Screen.*******
-13/10/2018 21:05:28 devpinoyLogger *******Travel date is WED 31 OCTOBER*******
-13/10/2018 21:05:29 devpinoyLogger *******Standard Ticket Cost is £43:40.*******
-13/10/2018 21:05:29 devpinoyLogger *******Flight Departs BFS at 16:30 and Arrives LTN at 17:40.*******
-13/10/2018 21:05:36 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
-13/10/2018 21:05:42 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
-13/10/2018 21:05:48 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
-13/10/2018 21:05:53 devpinoyLogger *******Total Calculated 15kg Luggage Cost for total passengers is 31.98.*******
-13/10/2018 21:05:54 devpinoyLogger *******Total Calculated 23kg Luggage Cost for total passengers is 73.96.*******
-13/10/2018 21:05:54 devpinoyLogger *******Total Luggage Cost (15kg + 23kg) for total passengers is £105.94.*******
-13/10/2018 21:05:57 devpinoyLogger *******Testing is being executed on: flight options Screen.*******
-13/10/2018 21:05:57 devpinoyLogger *******Golf Equipment not required*******
-13/10/2018 21:05:57 devpinoyLogger *******Snow Board Equipment not required*******
-13/10/2018 21:05:57 devpinoyLogger *******SportFirearms Equipment not required*******
-13/10/2018 21:05:57 devpinoyLogger *******Other Small Sports Equipment not required*******
-13/10/2018 21:05:58 devpinoyLogger *******Canoe/Kayak Equipment not required*******
-13/10/2018 21:05:58 devpinoyLogger *******Wind Surfer Equipment not required*******
-13/10/2018 21:05:58 devpinoyLogger *******Hang Glider Equipment not required*******
-13/10/2018 21:06:00 devpinoyLogger *******Additional Sports Equipment Cost is £164.00.*******
-13/10/2018 21:06:13 devpinoyLogger *******Luggage Cost is £105.94.*******
-13/10/2018 21:06:13 devpinoyLogger 105.94
-13/10/2018 21:06:13 devpinoyLogger *******Sports Equipment Cost is £164.00*******
-13/10/2018 21:06:13 devpinoyLogger 164.0
-13/10/2018 21:06:15 devpinoyLogger *******Outbound Flight Cost is £61.68.*******
-13/10/2018 21:06:15 devpinoyLogger 61.68
-13/10/2018 21:06:16 devpinoyLogger *******Inbound Flight Cost is £73.80.*******
-13/10/2018 21:06:16 devpinoyLogger 73.8
-13/10/2018 21:06:17 devpinoyLogger *******Total Flight Cost is £405.42.*******
-13/10/2018 21:06:17 devpinoyLogger 405.42
-13/10/2018 21:06:28 devpinoyLogger Appium Server Stopped
+30/10/2018 11:43:22 devpinoyLogger Appium Server Started
+30/10/2018 11:43:22 devpinoyLogger Loading Android Properties file and Starting Android Application
+30/10/2018 11:43:47 devpinoyLogger ########Executing TC1 - Purchase One Adult One Child Return Ticket TestCase########
+30/10/2018 11:43:54 devpinoyLogger *******Testing is being executed on: Book Flight Screen.*******
+30/10/2018 11:43:57 devpinoyLogger *******Testing is being executed on: All Airports Screen.*******
+30/10/2018 11:44:11 devpinoyLogger *******Testing is being executed on: All Airports Screen.*******
+30/10/2018 11:44:19 devpinoyLogger *******Return Flight Travel Airports have been selected*******
+30/10/2018 11:44:21 devpinoyLogger *******Testing is being executed on Calendar Screen.*******
+30/10/2018 11:44:37 devpinoyLogger *******Testing is being executed on: Add Passengers Screen.*******
+30/10/2018 11:44:48 devpinoyLogger *******Testing is being executed on: going out Screen.*******
+30/10/2018 11:44:53 devpinoyLogger *******Travel date is MON 05 NOVEMBER*******
+30/10/2018 11:44:54 devpinoyLogger *******Standard Ticket Cost is £24:23.*******
+30/10/2018 11:44:54 devpinoyLogger *******Flight Departs LTN at 08:40 and Arrives BFS at 09:55.*******
+30/10/2018 11:44:58 devpinoyLogger *******Testing is being executed on: coming back Screen.*******
+30/10/2018 11:45:09 devpinoyLogger *******Travel date is SUN 18 NOVEMBER*******
+30/10/2018 11:45:10 devpinoyLogger *******Standard Ticket Cost is £36:35.*******
+30/10/2018 11:45:10 devpinoyLogger *******Flight Departs BFS at 14:35 and Arrives LTN at 15:45.*******
+30/10/2018 11:45:16 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
+30/10/2018 11:45:21 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
+30/10/2018 11:45:26 devpinoyLogger *******Testing is being executed on: Add Extras Screen.*******
+30/10/2018 11:45:30 devpinoyLogger *******Cost of 15kg Luggage is £13.99 per bag, per flight.*******
+30/10/2018 11:45:30 devpinoyLogger *******Total Calculated 15kg Luggage Cost for total passengers is £27.98.*******
+30/10/2018 11:45:31 devpinoyLogger *******Cost of 23kg Luggage is £16.99 per bag, per flight.*******
+30/10/2018 11:45:31 devpinoyLogger *******Total Calculated 23kg Luggage Cost for total passengers is £67.96.*******
+30/10/2018 11:45:31 devpinoyLogger *******Calculation of Additional Luggage Charges: Expected value is £95.94 and Actual value is £95.94*******
+30/10/2018 11:45:34 devpinoyLogger *******Testing is being executed on: flight options Screen.*******
+30/10/2018 11:45:34 devpinoyLogger *******Golf Equipment not required*******
+30/10/2018 11:45:34 devpinoyLogger *******Snow Board Equipment not required*******
+30/10/2018 11:45:34 devpinoyLogger *******SportFirearms Equipment not required*******
+30/10/2018 11:45:34 devpinoyLogger *******Other Small Sports Equipment not required*******
+30/10/2018 11:45:35 devpinoyLogger *******Canoe/Kayak Equipment not required*******
+30/10/2018 11:45:35 devpinoyLogger *******Wind Surfer Equipment not required*******
+30/10/2018 11:45:35 devpinoyLogger *******Hang Glider Equipment not required*******
+30/10/2018 11:45:37 devpinoyLogger *******Additional Sports Equipment Cost is £164.00.*******
+30/10/2018 11:45:40 devpinoyLogger *******Calculation of Total Sports Equipment: Expected value is £164.0 and Actual value is £164.0*******
+30/10/2018 11:45:49 devpinoyLogger *******Luggage Cost is £95.94.*******
+30/10/2018 11:45:49 devpinoyLogger *******Sports Equipment Cost is £164.00*******
+30/10/2018 11:45:50 devpinoyLogger *******Outbound Flight Cost is £120.92.*******
+30/10/2018 11:45:52 devpinoyLogger *******Inbound Flight Cost is £169.40.*******
+30/10/2018 11:45:53 devpinoyLogger *******Calculation of Total Travel Cost: Expected value is £550.26 and Actual value is £550.26*******
+30/10/2018 11:45:53 devpinoyLogger *******Number of Passengers is 6*******
+30/10/2018 11:46:02 devpinoyLogger ******* Passenger 1******* 39******* 3 ******* 3 ******* 2 ******* 2 ******* 
+30/10/2018 11:46:05 devpinoyLogger ******* Passenger 2******* 39******* 3 ******* 3 ******* 2 ******* 2 ******* 
+30/10/2018 11:46:07 devpinoyLogger ******* Passenger 3******* 39******* 3 ******* 3 ******* 2 ******* 2 ******* 
+30/10/2018 11:46:15 devpinoyLogger ******* Passenger 4******* 42******* 2 ******* 3 ******* 3 ******* 2 ******* 
+30/10/2018 11:46:17 devpinoyLogger ******* Passenger 5******* 42******* 2 ******* 3 ******* 3 ******* 2 ******* 
+30/10/2018 11:46:19 devpinoyLogger ******* Passenger 6******* 42******* 2 ******* 3 ******* 3 ******* 2 ******* 
+30/10/2018 11:46:31 devpinoyLogger Appium Server Stopped
