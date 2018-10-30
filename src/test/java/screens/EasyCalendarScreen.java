@@ -45,7 +45,7 @@ public class EasyCalendarScreen extends ScreenBase2{
 	public void selectTravelDate(String journeyType, String departureMonth, String departureDay, String returningMonth, String returningDay){
 		log.debug("*******Testing is being executed on Calendar Screen.*******");
 		driver.findElementByAndroidUIAutomator("new UiSelector().text(\"CLEAR\")").click();
-		if(journeyType == "Return"){
+		if(journeyType.equals("Return")){
 			MobileElement fromMonth = getMonth(departureMonth);		
 			selectDay(fromMonth, departureDay);
 			

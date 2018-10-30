@@ -11,7 +11,6 @@ import org.testng.Assert;
 import org.apache.log4j.Logger;
 
 import base.ScreenBase2;
-import screens.EasyPassengerCountScreen;
 import screens.EasyTravelSportsEquipmentScreen;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -38,7 +37,7 @@ public class EasyAddExtraScreen extends ScreenBase2{
 	public MobileElement countText;
 	
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/hold_luggage_price")
-	public MobileElement luggagePriceText;
+	public List<MobileElement> luggagePriceText;
 	
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/plusNumberPickerView")
 	public List<MobileElement> plusNumberPickerView;
@@ -76,6 +75,23 @@ public class EasyAddExtraScreen extends ScreenBase2{
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/submitButton")
 	public MobileElement passengerDetailsSubmitBtn;
 	
+	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/maximumReached")
+	public MobileElement maximumReached;
+	
+	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/actionbar_home_logo")
+	public MobileElement homeLogo;
+	
+	public static int journey(){
+		if(EasyBookFlightScreen.JourneyType=="Return"){
+			return 2;
+		}else{
+			return 1;
+		}
+	}
+	public void homeLogo(){
+		homeLogo.click();
+	}
+	
 	public void logPage(){
 		List<String> price = new ArrayList<String>();
 		List<MobileElement> selectFlexi = linearLayout.get(2).findElementsByClassName("android.widget.TextView");
@@ -87,7 +103,8 @@ public class EasyAddExtraScreen extends ScreenBase2{
 		
 	}
 	
-	public void addBag15kg(int bag){
+	public void addBag15kg(String addBag15kg){
+		int bag = Integer.valueOf(addBag15kg);
 		logPage();
 		if(bag == 0){
 			log.debug("*******15kg bag not required*******");
@@ -105,7 +122,8 @@ public class EasyAddExtraScreen extends ScreenBase2{
 		}
 	}
 	
-	public void addBag23kg(int bag){
+	public void addBag23kg(String addBag23kg){
+		int bag = Integer.valueOf(addBag23kg);
 		logPage();
 		if(bag == 0){
 			log.debug("*******23kg bag not required*******");
@@ -134,36 +152,38 @@ public class EasyAddExtraScreen extends ScreenBase2{
 	public Double getLuggagePrice(){
 		logPage();
 		List<String> price = new ArrayList<String>();
-		List<MobileElement> selectFlexi = linearLayout.get(2).findElementsByClassName("android.widget.TextView");
+		List<MobileElement> selectFlexi = linearLayout.get(4).findElementsByClassName("android.widget.TextView");
 		for(int i=0; i<selectFlexi.size(); i++){
 			price.add(selectFlexi.get(i).getText());
 			System.out.println(selectFlexi.get(i).getText());
-		}		
-		//log.debug("*******Additional Luggage Cost is " + selectFlexi.get(6).getText().trim() +" "+ selectFlexi.get(9).getText().trim() +" "+ selectFlexi.get(11).getText().trim() + selectFlexi.get(12).getText().trim() + ":" + selectFlexi.get(13).getText().trim() + ".*******");
+		}
+		//log.debug("*******Additional Luggage Cost is " + luggagePriceText.get(0).getText().trim() +" "+ luggagePriceText.get(1).getText().trim() +" "+ selectFlexi.get(10).getText().trim() + selectFlexi.get(11).getText().trim() + "." + selectFlexi.get(12).getText().trim() + selectFlexi.get(13).getText().trim() + ".*******");
 		
 		int bagCount15kg = Integer.parseInt(plusNumberPickerView.get(0).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		String luggage15kg = selectFlexi.get(6).getText().trim();
-		//log.debug("*******Cost of 15kg Luggage is " + selectFlexi.get(6).getText().trim() + ".*******");
+		String luggage15kg = luggagePriceText.get(0).getText().trim();
+		log.debug("*******Cost of 15kg Luggage is " + luggagePriceText.get(0).getText().trim() + ".*******");
 		Double luggage15kgCosts = Double.parseDouble(luggage15kg.replaceAll("[^0-9]",""));
 		Double luggages15kg = luggage15kgCosts/100;
-		Double luggageTotal15kg = luggages15kg * bagCount15kg * EasyPassengerCountScreen.PassengerCount;
-		log.debug("*******Total Calculated 15kg Luggage Cost for total passengers is " + luggageTotal15kg + ".*******");
+		Double luggageTotal15kg = luggages15kg * bagCount15kg * journey();
+		log.debug("*******Total Calculated 15kg Luggage Cost for total passengers is £" + luggageTotal15kg + ".*******");
 		
 		int bagCount23kg = Integer.parseInt(plusNumberPickerView.get(1).findElementById("com.mttnow.droid.easyjet:id/count_text").getText());
-		//log.debug("*******Cost of 23kg Luggage is " + selectFlexi.get(9).getText().trim() + ".*******");
-		String luggage23kg = selectFlexi.get(9).getText().trim();
+		log.debug("*******Cost of 23kg Luggage is " + luggagePriceText.get(1).getText().trim() + ".*******");
+		String luggage23kg = luggagePriceText.get(1).getText().trim();
 		Double luggage23kgCosts = Double.parseDouble(luggage23kg.replaceAll("[^0-9]",""));
 		Double luggages23kg = luggage23kgCosts/100;
-		Double luggageTotal23kg = luggages23kg * bagCount23kg * EasyPassengerCountScreen.PassengerCount;
-		log.debug("*******Total Calculated 23kg Luggage Cost for total passengers is " + luggageTotal23kg + ".*******");
+		Double luggageTotal23kg = luggages23kg * bagCount23kg * journey();
+		log.debug("*******Total Calculated 23kg Luggage Cost for total passengers is £" + luggageTotal23kg + ".*******");
 		
-		String luggageCost = selectFlexi.get(11).getText().trim() + selectFlexi.get(12).getText().trim() + "." + selectFlexi.get(13).getText().trim();
+		String luggageCost = selectFlexi.get(10).getText().trim() + selectFlexi.get(11).getText().trim() + "." + selectFlexi.get(12).getText().trim() + selectFlexi.get(13).getText().trim();
 		Double luggageTotalCosts = Double.parseDouble(luggageCost.replaceAll("[^0-9]",""));
 		Double luggagesTotal = luggageTotalCosts/100;
 		//log.debug(luggagesTotal);
-		log.debug("*******Total Luggage Cost (15kg + 23kg) for total passengers is " + luggageCost + ".*******");
+		//log.debug("*******Total Luggage Cost (15kg + 23kg) for total passengers is " + luggageCost + ".*******");
+		
 		Double calculatedLuggageCosts = luggageTotal15kg+luggageTotal23kg;
-		Assert.assertTrue(luggageTotal15kg+luggageTotal23kg==luggagesTotal, "Calculation of Total Additional Luggage is incorrect");
+		log.debug("*******Calculation of Additional Luggage Charges: Expected value is £"+ calculatedLuggageCosts + " and Actual value is £" + luggagesTotal + "*******");
+		Assert.assertTrue(calculatedLuggageCosts.equals(luggagesTotal), "Calculation of Total Additional Luggage is incorrect. Calculated Lugguage cost is £" +calculatedLuggageCosts+ " and displayed actual total luggage cost is £" + luggagesTotal);
 		calculatedLuggageCost=calculatedLuggageCosts;
 		return calculatedLuggageCost;
 	}
@@ -201,7 +221,7 @@ public class EasyAddExtraScreen extends ScreenBase2{
 		
 		List<MobileElement> totalPrice = linearLayout.get(43).findElementsByClassName("android.widget.TextView");
 		String totalCost = totalPrice.get(1).getText() + totalPrice.get(2).getText() + "." + totalPrice.get(3).getText().trim();
-		log.debug("*******Total Flight Cost is " + totalCost + ".*******");
+		//log.debug("*******Total Flight Cost is " + totalCost + ".*******");
 		Double totalCosts = Double.parseDouble(totalCost.replaceAll("[^0-9]",""));
 		Double total = totalCosts/100;
 		//log.debug(total);
@@ -212,7 +232,8 @@ public class EasyAddExtraScreen extends ScreenBase2{
         big = big.setScale(2, RoundingMode.HALF_UP);        
         double finalCost = big.doubleValue();
         
-		Assert.assertTrue(finalCost==total, "Calculation of Total Travel Cost is incorrect"+ "..." + finalCost + "..." + total);
+        log.debug("*******Calculation of Total Travel Cost: Expected value is £"+ finalCost + " and Actual value is £" + total + "*******");
+		Assert.assertTrue(finalCost==total, "Calculation of Total Travel Cost is incorrect. Expected value is £" + finalCost + " and Actual value is £" + total);
 		
 		passengerDetailsSubmitBtn();
 	}

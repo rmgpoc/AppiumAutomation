@@ -26,6 +26,9 @@ public class EasyFlightDestinationScreen extends ScreenBase2{
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/airport_query")
 	public MobileElement airportQueryField;
 	
+	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/searchText")
+	public MobileElement airportSearchField;
+	
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/cancelButton")
 	public MobileElement cancelBtn;
 	
@@ -51,7 +54,7 @@ public class EasyFlightDestinationScreen extends ScreenBase2{
 	
 	public void selectAirport(String country, String airport){
 		logPage();
-		airportQueryField.sendKeys(country);
+		airportSearchField.sendKeys(country);
 		if(airportCountries.size()>1){
 			driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+airport+"\").instance(0))").click();
 		/*	try{

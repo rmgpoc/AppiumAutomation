@@ -14,6 +14,8 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class EasyBookFlightScreen extends ScreenBase{
 	
+	public static String JourneyType;
+	
 	public static Logger log = Logger.getLogger("devpinoyLogger");
 	public EasyBookFlightScreen(AppiumDriver<MobileElement> driver) {
 		super(driver);
@@ -77,8 +79,8 @@ public class EasyBookFlightScreen extends ScreenBase{
 		flightTypeBtns.get(0).click();
 	}
 	
-	public void journeyType(String journeyType){
-		if(journeyType=="Return"){
+	public String journeyType(String journeyType){
+		if(journeyType.equals("Return")){
 			log.debug("*******Testing is being executed on: " + logPage.get(0).getText().trim() + " Screen.*******");
 			departureBtn();
 		}else{
@@ -86,6 +88,9 @@ public class EasyBookFlightScreen extends ScreenBase{
 			log.debug("*******Testing is being executed on: " + logPage.get(0).getText().trim() + " Screen.*******");
 			departureBtn();
 		}
+		String journeyTypes = journeyType;
+		JourneyType=journeyTypes;
+		return JourneyType;
 	}
 	
 	public void departureBtn(){
@@ -156,7 +161,10 @@ public class EasyBookFlightScreen extends ScreenBase{
 		childrenAndInfantBtn.click();
 	}
 	
-	public void addPassenger(int adultCount, int childCount, int infantCount){
+	public void addPassenger(String adult, String child, String infant){
+		int adultCount = Integer.valueOf(adult);
+		int childCount = Integer.valueOf(child);
+		int infantCount = Integer.valueOf(infant);
 		if(adultCount==1 && childCount==0 && infantCount == 0){
 			log.debug("*******Single Adult FLight*******");
 		}else if(adultCount>1 && childCount==0 && infantCount == 0){

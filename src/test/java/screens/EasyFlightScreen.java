@@ -62,13 +62,13 @@ public class EasyFlightScreen extends ScreenBase{
 		flexiFareBtn.click();
 	}
 	
-	public void selectOutboundTicket(String fareType, int select) throws IOException{
-		
+	public void selectOutboundTicket(String fareType, String selectDisplayedTicket) throws IOException{
+		int select = Integer.valueOf(selectDisplayedTicket);
 		selectFareType(fareType, select);
 	}
 	
-	public void selectInboundTicket(String fareType, int select) throws IOException{
-		
+	public void selectInboundTicket(String fareType, String selectDisplayedTicket) throws IOException{
+		int select = Integer.valueOf(selectDisplayedTicket);
 		selectFareType(fareType, select);
 	}
 	
@@ -79,7 +79,7 @@ public class EasyFlightScreen extends ScreenBase{
 		List<MobileElement> multiFlightFlexi = multiFlightScheduleFrame.get(select).findElementsById("com.mttnow.droid.easyjet:id/fare_button_flexi");		
 		if(multiFlightStandard.size() > 1 || multiFlightFlexi.size() > 1){
 			List<String> price = new ArrayList<String>();
-			if(fareType == "Standard"){
+			if(fareType.equals("Standard")){
 				log.debug("*******Travel date is " + caption.getText()+"*******");
 				List<MobileElement> selectStandard = multiFlightStandard.get(select).findElementsByClassName("android.widget.TextView");
 					for(int i=0; i<selectStandard.size(); i++){
@@ -89,7 +89,7 @@ public class EasyFlightScreen extends ScreenBase{
 					log.debug("*******Standard Ticket Cost is " + selectStandard.get(1).getText() + selectStandard.get(2).getText() +":"+ selectStandard.get(3).getText().trim() + ".*******");
 					log.debug("*******Flight " + multiFlight.get(select).findElementById("com.mttnow.droid.easyjet:id/flight_times_departure_iata_text").getText() + " at " + multiFlight.get(select).findElementById("com.mttnow.droid.easyjet:id/flight_times_departure_time_text").getText() + " and " + multiFlight.get(select).findElementById("com.mttnow.droid.easyjet:id/flight_times_arrival_iata_text").getText() + " at " + multiFlight.get(select).findElementById("com.mttnow.droid.easyjet:id/flight_times_arrival_time_text").getText() + ".*******");
 					multiFlight.get(select).findElementById("com.mttnow.droid.easyjet:id/fare_button_standard").click();
-				}else if(fareType == "Flexi"){
+				}else if(fareType.equals("Flexi")){
 					log.debug("*******Travel date is " + caption.getText()+"*******");
 					List<MobileElement> selectFlexi = multiFlightFlexi.get(select).findElementsByClassName("android.widget.TextView");
 					for(int i=0; i<selectFlexi.size(); i++){
@@ -105,7 +105,7 @@ public class EasyFlightScreen extends ScreenBase{
 			
 		}else{
 			List<String> price = new ArrayList<String>();
-			if(fareType == "Standard"){
+			if(fareType.equals("Standard")){
 				log.debug("*******Travel date is " + caption.getText()+"*******");
 				List<MobileElement> standardFare = standardFareBtn.findElementsByClassName("android.widget.TextView");
 					for(int i=0; i<standardFare.size(); i++){
@@ -116,7 +116,7 @@ public class EasyFlightScreen extends ScreenBase{
 					log.debug("*******Flight " + departureTimePort.getText() + " at " + departureTime.getText() + " and " +  arrivalTimePort.getText() + " at " + arrivalTime.getText() + ".*******");
 					TestUtil.takeScreenShot();
 					standardFareBtn();
-				}else if(fareType == "Flexi"){
+				}else if(fareType.equals("Flexi")){
 					log.debug("*******Travel date is " + caption.getText()+"*******");
 					List<MobileElement> flexiFare = flexiFareBtn.findElementsByClassName("android.widget.TextView");
 					for(int i=0; i<flexiFare.size(); i++){
