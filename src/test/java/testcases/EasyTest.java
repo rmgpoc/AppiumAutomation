@@ -71,10 +71,10 @@ public class EasyTest extends TestBase{
 		easyAddExtraScreen.addSportsEquipBtn();
 		easyTravelSportsEquipmentScreen.addSportsEquipment("0", "1", "0", "0", "0", "1", "0", "0", "0");
 		easyAddExtraScreen.finalPrice();
-		//easyPassengerDetailsScreen.getPassengers();
-		easyPassengerDetailsScreen.addAdultPassengerDetails("Mr", "Mark", "West", "18+");
-		easyPassengerDetailsScreen.addChildPassengerDetails("Ms", "Sam", "West", "15");
-		easyPassengerDetailsScreen.addInfantPassengerDetails("Malcolm", "West");
+		easyPassengerDetailsScreen.getPassengers();
+		//easyPassengerDetailsScreen.addAdultPassengerDetails("Mr", "Mark", "West", "18+");
+		//easyPassengerDetailsScreen.addChildPassengerDetails("Ms", "Sam", "West", "15");
+		//easyPassengerDetailsScreen.addInfantPassengerDetails("Malcolm", "West");
 		easyPassengerDetailsScreen.homeLogo();
 	}
 	
