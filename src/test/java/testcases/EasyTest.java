@@ -1,6 +1,8 @@
 package testcases;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.testng.ITestContext;
@@ -11,6 +13,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import models.AbstractPassenger;
 import screens.EasyAddExtraScreen;
 import screens.EasyBookFlightScreen;
 import screens.EasyCalendarScreen;
@@ -59,7 +62,7 @@ public class EasyTest extends TestBase{
 		easyBookFlight.destinationBtn();
 		easyFlightDestination.selectAirport("United Kingdom", "Belfast Intl");
 		easyBookFlight.departingDate();
-		easyCalendar.selectTravelDate("Return", "November 2018", "5", "November 2018", "18");
+		easyCalendar.selectTravelDate("Return", "November 2018", "19", "December 2018", "2");
 		easyBookFlight.addPassenger("2", "2", "2");
 		easyPassenger.addPassengerCount("2", "2", "2");
 		easyBookFlight.showFlightsButton();
@@ -71,11 +74,13 @@ public class EasyTest extends TestBase{
 		easyAddExtraScreen.addSportsEquipBtn();
 		easyTravelSportsEquipmentScreen.addSportsEquipment("0", "1", "0", "0", "0", "1", "0", "0", "0");
 		easyAddExtraScreen.finalPrice();
-		easyPassengerDetailsScreen.getPassengers();
-		//easyPassengerDetailsScreen.addAdultPassengerDetails("Mr", "Mark", "West", "18+");
-		//easyPassengerDetailsScreen.addChildPassengerDetails("Ms", "Sam", "West", "15");
-		//easyPassengerDetailsScreen.addInfantPassengerDetails("Malcolm", "West");
-		easyPassengerDetailsScreen.homeLogo();
+		int count = EasyPassengerCountScreen.adultCt+= EasyPassengerCountScreen.childCt+EasyPassengerCountScreen.infantCt;
+		easyPassengerDetailsScreen.getPassengers(1, count);
+		
+//		easyPassengerDetailsScreen.addAdultPassengerDetails("Mr", "Mark", "West", "18+");
+//		easyPassengerDetailsScreen.addChildPassengerDetails("Ms", "Sam", "West", "15");
+//		easyPassengerDetailsScreen.addInfantPassengerDetails("Malcolm", "West");
+//		easyPassengerDetailsScreen.homeLogo();
 	}
 	
 	/*@Test(dataProvider="getData", priority=2)

@@ -1,12 +1,11 @@
 package screens;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import base.ScreenBase2;
@@ -24,48 +23,18 @@ public class EasyPassengerDetailsScreen extends ScreenBase2{
 		super(driver);
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), this);
 	}
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/passengerTitleButton")
-	public MobileElement titleBtn;
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/passengerTitleButton")
-	public List<MobileElement> titleBtns;
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/passengerFirstNameText")
-	public MobileElement firstNameField;
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/passengerFirstNameText")
-	public List<MobileElement> firstNameFields;
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/passengerLastNameText")
-	public MobileElement lastNameField;
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/passengerLastNameText")
-	public List<MobileElement> lastNameFields;
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/passengerDateOfBirthButton")
-	public MobileElement dobBtn;
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/passengerDateOfBirthButton")
-	public List<MobileElement> dobBtns;
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/captionText")
-	public MobileElement captionText;
-	
-	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/captionText")
-	public List<MobileElement> captionTexts;
-	
+
 	@AndroidFindBy(className="android.widget.ScrollView")
 	public MobileElement scrollView;
 	
-	@AndroidFindBy(className="android.widget.LinearLayout")
-	public List<MobileElement> linearLayout;	
+	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/captionText")
+	public MobileElement caption;
 	
 	@AndroidFindBy(id="android:id/text1")
-	public List<MobileElement> selectTitles;//Adult:Mr, Mrs, Ms, Miss. Child: Mr, Ms. No title for infants
+	public List<MobileElement> selectTitles;
 	
 	@AndroidFindBy(id="android:id/text1")
-	public List<MobileElement> selectAges;//Adult:16, 17, 18+. Child: 2 - 15. No age selection for infants
+	public List<MobileElement> selectAges;
 	
 	@AndroidFindBy(id="com.mttnow.droid.easyjet:id/submitButton")
 	public MobileElement submitButton;
@@ -76,26 +45,94 @@ public class EasyPassengerDetailsScreen extends ScreenBase2{
 	public void homeLogo(){
 		homeLogo.click();
 	}
+
+	private List<AbstractPassenger> passengers = new ArrayList<AbstractPassenger>();
 	
-	public void clickTitleBtn(){
-		titleBtn.click();
-	}
-	//List<AbstractPassenger> 
-	public void getPassengers(){
-		List<AbstractPassenger> passengers = null;
+	private List<String> captionList = new ArrayList<String>();
+	
+	private int lastKnownCaption = 1;
+	
+	public boolean passengerExist(String text){
 		
-		int count = EasyPassengerCountScreen.adultCt+= EasyPassengerCountScreen.childCt+EasyPassengerCountScreen.infantCt;
-		log.debug("*******Number of Passengers is "+count+"*******");
-		for(int i=0; i<count; i++){
-			int pcount = i + 1;
-			String text = "Passenger "+pcount;
-			driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+text+"\").instance(0))");
-			List<MobileElement> captions = scrollView.findElements(MobileBy.xpath("//*"));
-			System.out.println("******* Passenger "+pcount+"******* "+captions.size()+" ******* ");
-			log.debug("******* "+text+"******* "+captions.size()+"******* ");
+		for(String p : captionList){
+			
+			if(p.equals(text)){
+				return true;
+			}
 		}
 		
+		return false;
 	}
 	
-
+	public void  getPassengers(int count, int seed){
+						
+		if(lastKnownCaption  >= seed){
+			submitButton.click();
+			return;			
+		}
+		
+		//log.debug("*******Number of Passengers is "+count+"*******");
+		//List<AbstractPassenger> passengers = new ArrayList<AbstractPassenger>();
+		AbstractPassenger currentPassenger = null;
+		
+		String lastElementOnScreen = "Continue";
+		String text = "Passenger " + lastKnownCaption;
+		//lastKnownCaption = lastKnownCaption==null? text : lastKnownCaption;
+		//driver.swipe(500, 1585, 500, 138, 2000);
+		
+		if(caption.getText().startsWith(text)){
+			driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+text+"\").instance(0))");
+		}else{
+			driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+lastElementOnScreen+"\").instance(0))");
+		}
+		
+		List<MobileElement> captions = scrollView.findElements(MobileBy.xpath("//*"));
+			
+		for(MobileElement mb: captions){
+			
+			String resourceId = mb.getAttribute("resourceId");
+				
+			if(null == resourceId) continue;
+				
+			log.debug(mb.getAttribute("resourceId"));
+							
+			//if(mb.getText().contains("Passenger ")){
+			if(resourceId.equals("com.mttnow.droid.easyjet:id/captionText")){
+				if(passengerExist(mb.getText())){
+					currentPassenger=null;
+					continue;
+				}
+				log.debug("*******Number of Passengers is "+ mb.getText() +"*******");
+					
+				AbstractPassenger currentPassenger1  = new AbstractPassenger();
+				currentPassenger = currentPassenger1;
+				currentPassenger1.resourceId = resourceId;
+				currentPassenger1.text = mb.getText();
+				passengers.add(currentPassenger1);
+				captionList.add(mb.getText());
+				lastKnownCaption += 1; 
+				currentPassenger1.captionText = mb;
+					
+			}
+			else if(currentPassenger!=null && resourceId.equals("com.mttnow.droid.easyjet:id/passengerTitleButton")){
+					currentPassenger.titleBtn = mb;
+			}
+			else if(currentPassenger!=null && resourceId.equals("com.mttnow.droid.easyjet:id/passengerFirstNameText")){
+					currentPassenger.firstNameField = mb;
+			}				
+			else if(currentPassenger!=null && resourceId.equals("com.mttnow.droid.easyjet:id/passengerLastNameText")){
+					currentPassenger.lastNameField = mb;
+			}				
+			else if(currentPassenger!=null && resourceId.equals("com.mttnow.droid.easyjet:id/passengerDateOfBirthButton")){
+					currentPassenger.dobBtn = mb;
+			}				
+		}
+			
+		for(AbstractPassenger passenger : passengers){
+			passenger.setData(text, text, text, text);				
+		}			
+			
+		getPassengers(++count, seed);			
+	}
+	
 }
